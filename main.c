@@ -1,13 +1,11 @@
-# include <stdio.h>
-# include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "defines.h"
-
 
 Registrador registrador;
 
 int flagCount = 0;
-
 
 unsigned char MEM[0x100]; 
 
@@ -30,6 +28,19 @@ void inicializaReg(){
 }
 
 busca(){
+    registrador.MAR = registrador.PC;
+    registrador.MBR = MEM[registrador.MAR];
+    registrador.MAR++;
+    registrador.MBR = registrador.MBR << 8 + MEM[registrador.MAR];
+
+    registrador.MAR = registrador.PC;
+    registrador.MBR = MEM[registrador.MAR];
+    registrador.MAR++;
+    registrador.MBR = registrador.MBR << 8 + MEM[registrador.MAR];
+
+}
+
+decodifica(){
 
 }
 
@@ -37,6 +48,11 @@ executa(){
 
 }
 
-decodifica(){
+int main(){
+    inicializaReg();
+    busca();
+    decodifica();
+    executa();
 
+    return 0;
 }

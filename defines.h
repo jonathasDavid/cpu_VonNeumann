@@ -42,6 +42,9 @@ typedef struct
     unsigned short int IMM;  // Immediate
     unsigned short int IBR;  // Instruction Buffer Register
 
+    unsigned short int RO0; // Register operand 0
+    unsigned short int R01; // Register operand 1
+
     unsigned char E, L, G;   // Flags: Equal, Lower, Greater
     unsigned char LR;        // Left/Right control register
 
