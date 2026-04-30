@@ -33,6 +33,9 @@
 #define lsh   0b11100
 #define rsh   0b11101
 
+
+#define tamanhoMemoria 0x100
+
 typedef struct
 {
     unsigned short int PC;   // Program Counter
@@ -48,5 +51,8 @@ typedef struct
     unsigned short int A;    // General-purpose register A
     unsigned short int B;    // General-purpose register B
     unsigned short int T;    // Temporary register
+
+    unsigned char R01;  // General-purpose register R01
+    unsigned char R02;  // General-purpose register R02
 
 } Registrador;
