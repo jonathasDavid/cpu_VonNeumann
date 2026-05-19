@@ -163,7 +163,7 @@ void imprimeEstado() {
     }
 }
 
-// ----------------- CICLO DE MÁQUINA -----------------
+// ----------------- AQUI É CICLO DE MÁQUINA -----------------
 
 void busca() {
     cpu.MBR = lerByte(cpu.PC);
