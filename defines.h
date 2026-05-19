@@ -1,58 +1,61 @@
-#define hlt   0b00000
-#define nop   0b00001
+#ifndef DEFINES_H
+#define DEFINES_H
 
-#define ldr   0b00010
-#define str   0b00011
-#define add   0b00100
-#define sub   0b00101
-#define mul   0b00110
-#define div   0b00111
-#define cmp   0b01000
-#define movr  0b01001
-#define and   0b01010
-#define or    0b01011
-#define xor   0b01100
-#define not   0b01101
+#define TAMANHO_MEMORIA 0x100
+#define QTD_REGISTRADORES 8
 
-#define je    0b01110
-#define jne   0b01111
-#define jl    0b10000
-#define jle   0b10001
-#define jg    0b10010
-#define jge   0b10011
-#define jmp   0b10100
+#define MASK_BYTE 0xFFu
+#define MASK_WORD 0xFFFFu
+#define MASK_OPCODE 0x1Fu
+#define MASK_REG 0x07u
 
-#define ld    0b10101
-#define st    0b10110
-
-#define movi  0b10111
-#define addi  0b11000
-#define subi  0b11001
-#define muli  0b11010
-#define divi  0b11011
-#define lsh   0b11100
-#define rsh   0b11101
-
-
-#define tamanhoMemoria 0x100
+typedef enum
+{
+    OP_HLT = 0x00,
+    OP_NOP = 0x01,
+    OP_LDR = 0x02,
+    OP_STR = 0x03,
+    OP_ADD = 0x04,
+    OP_SUB = 0x05,
+    OP_MUL = 0x06,
+    OP_DIV = 0x07,
+    OP_CMP = 0x08,
+    OP_MOVR = 0x09,
+    OP_AND = 0x0A,
+    OP_OR = 0x0B,
+    OP_XOR = 0x0C,
+    OP_NOT = 0x0D,
+    OP_JE = 0x0E,
+    OP_JNE = 0x0F,
+    OP_JL = 0x10,
+    OP_JLE = 0x11,
+    OP_JG = 0x12,
+    OP_JGE = 0x13,
+    OP_JMP = 0x14,
+    OP_LD = 0x15,
+    OP_ST = 0x16,
+    OP_MOVI = 0x17,
+    OP_ADDI = 0x18,
+    OP_SUBI = 0x19,
+    OP_MULI = 0x1A,
+    OP_DIVI = 0x1B,
+    OP_LSH = 0x1C,
+    OP_RSH = 0x1D
+} Opcode;
 
 typedef struct
 {
-    unsigned short int PC;   // Program Counter
-    unsigned int MBR;        // Memory Buffer Register
-    unsigned short int MAR;  // Memory Address Register
-    unsigned char IR;        // Instruction Register
-    unsigned short int IMM;  // Immediate
-    unsigned short int IBR;  // Instruction Buffer Register
-
-    unsigned char E, L, G;   // Flags: Equal, Lower, Greater
-    unsigned char LR;        // Left/Right control register
-
-    unsigned short int A;    // General-purpose register A
-    unsigned short int B;    // General-purpose register B
-    unsigned short int T;    // Temporary register
-
-    unsigned char R01;  // General-purpose register R01
-    unsigned char R02;  // General-purpose register R02
-
+    unsigned short int PC;
+    unsigned int MBR;
+    unsigned short int MAR;
+    unsigned char IR;
+    unsigned char RO0;
+    unsigned char RO1;
+    unsigned short int IMM;
+    unsigned char E;
+    unsigned char L;
+    unsigned char G;
+    unsigned short int reg[QTD_REGISTRADORES];
 } Registrador;
+
+#endif

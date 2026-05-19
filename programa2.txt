@@ -1,0 +1,41 @@
+# Exercicio 2: produto interno entre dois vetores de 10 posicoes.
+# Vetor A: 0xD6 a 0xE9
+# Vetor B: 0xEA a 0xFD
+# Resultado esperado em 0xFE/0xFF: 0x01B8
+0;i;movi r0, 0
+3;i;movi r1, d6
+6;i;movi r2, ea
+9;i;movi r3, a
+c;i;ldr r4, r1
+e;i;ldr r5, r2
+10;i;movr r6, r4
+12;i;mul r6, r5
+14;i;add r0, r6
+16;i;addi r1, 2
+19;i;addi r2, 2
+1c;i;subi r3, 1
+1f;i;movi r7, 0
+22;i;cmp r3, r7
+24;i;jg c
+27;i;st r0, fe
+2a;i;hlt
+d6;d;1
+d8;d;2
+da;d;3
+dc;d;4
+de;d;5
+e0;d;6
+e2;d;7
+e4;d;8
+e6;d;9
+e8;d;a
+ea;d;2
+ec;d;3
+ee;d;4
+f0;d;5
+f2;d;6
+f4;d;7
+f6;d;8
+f8;d;9
+fa;d;a
+fc;d;b
